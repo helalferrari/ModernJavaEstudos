@@ -1,10 +1,9 @@
 package Estudos;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Main {
-    public static void main(String[] args) {
+     public static void main(String[] args) {
 
         record Funcionario(String nome, double salario, String cargo) {}
 
@@ -15,12 +14,7 @@ public class Main {
                 new Funcionario("Daniel", 4500, "Dev")
         );
 
-        // CENÁRIO: Quero o nome de todos os "Devs" que ganham mais de 4000, em caixa alta.
 
-        // MODO ANTIGO (Mentalmente doloroso):
-        // Teria que criar lista auxiliar, for, if, adicionar, converter string...
-
-        // MODO MODERNO (Stream API):
         List<String> devsRicos = equipe.stream()
                 .filter(f -> f.cargo().equals("Dev"))      // 1. Filtra só quem é Dev
                 .filter(f -> f.salario() > 4000)           // 2. Filtra quem ganha > 4k
